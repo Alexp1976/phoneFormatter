@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import file.DirectoryReader;
-import file.FileReader;
+import file.FileProcessor;
 
 public class PhoneApp {
 
@@ -21,7 +21,7 @@ public class PhoneApp {
 	DirectoryReader directoryReader = new DirectoryReader();
 	directoryReader.listFiles(args[0]);
 	
-	FileReader fileReader = new FileReader();
+	FileProcessor fileReader = new FileProcessor();
 	
 	directoryReader.getFiles().forEach(e -> {
 	    try {
@@ -30,7 +30,7 @@ public class PhoneApp {
 	    } catch (IOException ex) {
 		ex.printStackTrace();
 	    }
-	});
+	});	
 	
 	phoneList.stream().sorted().forEach(System.out::println);
 

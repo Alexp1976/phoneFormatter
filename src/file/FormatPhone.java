@@ -10,7 +10,7 @@ public class FormatPhone {
 
     private List<String> phoneList = new ArrayList<>();
     
-    public void formatDisplayNumber(PhonePattern pattern, String phoneDigit, String phoneNumber) throws ParseException {
+    public void formatDisplayNumber(PhonePattern pattern, String phoneDigit) throws ParseException {
 	
 	MaskFormatter formatter = new MaskFormatter("+# (###) ###-####");
 	formatter.setValueContainsLiteralCharacters(false);

@@ -1,7 +1,11 @@
 package file;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public enum PhonePattern {
 
@@ -81,6 +85,20 @@ public enum PhonePattern {
 	return Arrays.stream(PhonePattern.values())
 		.filter(pattern -> phoneNumber.matches(pattern.regex))
 		.findFirst();
+    }
+        
+    public static List<String> match(PhonePattern expression, String text) {
+
+	List<String> result = new ArrayList<>();
+	
+	Pattern pattern = Pattern.compile(expression.regex);
+	Matcher matcher = pattern.matcher(text);
+	
+	while(matcher.find()) {
+	    result.add(matcher.group());	    
+	}
+
+	return result;
     }
     
     public String getRegex() {
